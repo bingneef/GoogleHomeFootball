@@ -1,7 +1,7 @@
 const Raven = require('raven')
 const constants = require('./../../config/constants')
 
-const guard = process.env.NODE_ENV !== 'production' || !constants.tokens.sentry
+const guard = process.env.NODE_ENV !== 'production'
 
 const initSentry = () => {
   if (guard) {

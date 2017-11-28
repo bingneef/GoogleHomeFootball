@@ -9,6 +9,9 @@ const { googleHome, serverPort } = require('./config/constants')
 const morgan = require('morgan')
 const express = require('express')
 const bodyParser = require('body-parser')
+
+initSentry()
+
 const app = express()
 
 app.use(morgan('combined'))
