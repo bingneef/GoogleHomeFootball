@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "script": "/var/www/google-home-football/current/app.js",
+      "name": "GoogleHomeFootball",
+      "instances": "max",
+      "watch": false,
+      "interpreter": "/var/www/google-home-football/node_modules/babel-cli/bin/babel-node.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
