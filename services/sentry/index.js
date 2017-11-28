@@ -1,9 +1,9 @@
-import Raven from 'raven'
-import constants from './../../config/constants'
+const Raven = require('raven')
+const constants = require('./../../config/constants')
 
 const guard = process.env.NODE_ENV !== 'production' || !constants.tokens.sentry
 
-export const initSentry = () => {
+const initSentry = () => {
   if (guard) {
     console.log('Sentry not started.')
     return
@@ -12,10 +12,17 @@ export const initSentry = () => {
   Raven.config(constants.tokens.sentry).install()
 }
 
-export const sendException = e => {
+const sendException = e => {
   if (guard) {
+    console.log('Exception not send: ', e.message)
     return
   }
 
+  console.log('Exception send: ', e.message)
   Raven.captureException(e)
+}
+
+module.exports = {
+  initSentry,
+  sendException,
 }
